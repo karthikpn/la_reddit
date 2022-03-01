@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
-      <div className="sm:flex md:hidden flex items-center justify-around bg-white h-14">
+      <div className="sm:flex md:hidden flex items-center justify-around bg-white h-14 mr-2">
         <Link to="/">
           <img
             className="object-contain h-7"
@@ -11,16 +11,16 @@ const Header = () => {
             src="/images/reddit.svg"
           />
         </Link>
-        <div className="flex justify-center">
+        <div className="flex items-center w-1/2">
           <div className=" relative flex flex-wrap ">
             <input
               type="search"
-              className=" px-2 py-1 text-base font-normal text-gray-700 rounded-sm bg-white bg-clip-padding border border-solid border-gray-300  transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-700 focus:outline-none"
+              className=" px-2 py-1 text-base font-normal w-3/4 text-gray-700 rounded-sm bg-white bg-clip-padding border border-solid border-gray-300  transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-700 focus:outline-none"
               placeholder="Search"
               aria-label="Search"
             />
             <button
-              className="btn px-3 py-1 bg-gray-900 rounded-sm text-white font-medium text-xs  uppercase  shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
+              className="btn px-3 py-1 bg-gray-900  w-1/6 rounded-sm text-white font-medium text-xs  uppercase  shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
               type="button"
               id="button-addon2"
             >
@@ -29,7 +29,7 @@ const Header = () => {
                 focusable="false"
                 data-prefix="fas"
                 data-icon="search"
-                className="w-4"
+                className="object-contain"
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
@@ -44,7 +44,7 @@ const Header = () => {
         </div>
 
         <Link to="/login">
-          <h2 className="text-xl mx-1">
+          <h2 className="text-xl mx-2">
             <i class="fas fa-user" style={{ marginRight: "0.5vw" }}></i>
           </h2>
         </Link>
