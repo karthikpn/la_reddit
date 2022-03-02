@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Home from "./Screen/Home";
 import Login from "./Screen/Login";
+import Profile from "./Screen/Profile";
 import Register from "./Screen/Register";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </Router>
     </div>

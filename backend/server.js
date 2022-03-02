@@ -3,7 +3,7 @@ import { errorHandler } from "./middleware/errorMiddleware.js";
 import userRoute from "./routes/UserRoutes.js";
 import dotenv from "dotenv";
 import connectDB from "./connectDB.js";
-
+import postRoute from "./routes/PostRoute.js";
 const app = express();
 
 dotenv.config();
@@ -11,7 +11,9 @@ dotenv.config();
 connectDB();
 
 app.use(express.json());
+
 app.use("/api/user", userRoute);
+app.use("/api/post", postRoute);
 
 app.use(errorHandler);
 

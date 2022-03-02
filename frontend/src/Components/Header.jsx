@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const user = useSelector((state) => state.user);
+  const { userInfo } = user;
+
   return (
     <>
       <div className="sm:flex md:hidden flex items-center justify-around bg-white h-14 mr-2">
@@ -88,11 +92,19 @@ const Header = () => {
             </button>
           </div>
         </div>
-        <Link to="/login">
-          <h2 className="text-xl mx-1">
-            <i class="fas fa-user" style={{ marginRight: "0.5vw" }}></i>
-          </h2>
-        </Link>
+        {userInfo ? (
+          <Link to="/profile">
+            <h2 className="text-xl mx-1">
+              <i class="fas fa-user" style={{ marginRight: "0.5vw" }}></i>
+            </h2>
+          </Link>
+        ) : (
+          <Link to="/login">
+            <h2 className="text-xl mx-1">
+              <i class="fas fa-user" style={{ marginRight: "0.5vw" }}></i>
+            </h2>
+          </Link>
+        )}
       </div>
     </>
   );

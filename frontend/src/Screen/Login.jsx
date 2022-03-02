@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoginAction } from "../Action/userAction";
 import Loader from "../Components/Loader";
@@ -8,20 +8,26 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const [loginClick, setLoginClick] = useState(false);
 
+  const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const { loading, error, userInfo } = user;
 
   const loginHandler = (e) => {
     e.preventDefault();
+
     dispatch(userLoginAction(email, password));
+    if (userInfo) {
+      toast.success("Login Success");
+    }
+    if (error) {
+      toast.error(error);
+    }
   };
-  if (userInfo) {
-    toast.success("Login Success");
-  }
-  if (error) {
-    toast.error(error);
-  }
+  useEffect(() => {
+    if (userInfo) navigate("/");
+  }, [userInfo]);
   return (
     <div className=" flex justify-center" style={{ height: "90vh" }}>
       <div className="shadow-lg flex flex-col items-center bg-white h-fit m-14 max-w-screen-md w-1/2">
